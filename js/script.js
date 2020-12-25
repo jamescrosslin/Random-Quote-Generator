@@ -51,7 +51,7 @@ const quotes = [
     source: "A.A. Milne",
   },
   {
-    quote: `We are never quits with those who oblige us," was Dantes' reply; "for when we do not owe them money, we owe them gratitude.`,
+    quote: `We are never quits with those who oblige us," was Dantes' reply; "for when we do not owe them money, we owe them <em>gratitude</em>.`,
     source: "Alexandre Dumas",
     citation: "The Count of Monte Cristo",
     year: 1845,
