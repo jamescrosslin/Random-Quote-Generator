@@ -18,6 +18,8 @@ project 1 - A Random Quote Generator
 //   year: ,
 // },
 
+//This is an array containing quote objects
+
 const quotes = [
   {
     quote:
@@ -36,7 +38,6 @@ const quotes = [
   {
     quote: "I acknowledge no master in human form.",
     source: "John Brown",
-    citation: "Prison interview",
     year: 1859,
   },
   {
@@ -61,6 +62,9 @@ const quotes = [
 /***
  * `getRandomQuote` function
  ***/
+function getRandomQuote() {
+  return quotes[Math.floor(Math.random() * quotes.length)];
+}
 
 /***
  * `printQuote` function
