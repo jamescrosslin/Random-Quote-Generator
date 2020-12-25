@@ -90,6 +90,13 @@ function printQuote() {
   return (document.getElementById("quote-box").innerHTML = quoteString);
 }
 
+/*
+* This method calls the printQuote function
+* on a 6 second interval
+*/
+setInterval(printQuote, 6000)
+
+
 /***
  * This event listener listens for a button click
  * and calls the printQuote function
