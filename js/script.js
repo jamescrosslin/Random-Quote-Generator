@@ -63,12 +63,21 @@ const quotes = [
  * `getRandomQuote` function
  ***/
 function getRandomQuote() {
-  return quotes[Math.floor(Math.random() * quotes.length)];
+  const randomNum = Math.floor(Math.random() * quotes.length);
+  return quotes[randomNum];
 }
 
 /***
  * `printQuote` function
  ***/
+
+function printQuote() {
+  const randomQuote = getRandomQuote();
+  const htmlString = `
+  <p class="quote">${randomQuote.quote}</p>
+  <p class="source">${randomQuote.source}</p>
+  `;
+}
 
 /***
  * click event listener for the print quote button
