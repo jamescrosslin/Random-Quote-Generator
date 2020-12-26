@@ -89,7 +89,7 @@ function printQuote() {
   )`;
 
   clearInterval(quoteInterval)
-  interval = setInterval(printQuote, 6000)
+  quoteInterval = setInterval(printQuote, 6000)
   
   return (document.getElementById("quote-box").innerHTML = quoteString);
 }
