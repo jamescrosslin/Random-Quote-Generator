@@ -73,7 +73,7 @@ function printQuote() {
   let quoteString = `
     <p class="quote">${randomQuote.quote}</p>
     <p class="source">
-    `;
+  `;
 
   if (randomQuote.profession) quoteString += `<span class='profession'>${randomQuote.profession}</span>`;
 
@@ -86,8 +86,11 @@ function printQuote() {
 
   document.querySelector("body").style.backgroundColor = `rgb(
     ${getRandomNumber(0, 255)},${getRandomNumber(0, 255)},${getRandomNumber(0, 255)}
-    )`;
+  )`;
 
+  clearInterval(quoteInterval)
+  interval = setInterval(printQuote, 6000)
+  
   return (document.getElementById("quote-box").innerHTML = quoteString);
 }
 
@@ -95,7 +98,7 @@ function printQuote() {
 * This method calls the printQuote function
 * on a 6 second interval
 */
-setInterval(printQuote, 6000)
+let quoteInterval = setInterval(printQuote, 6000)
 
 
 /***
