@@ -64,6 +64,19 @@ function getRandomQuote() {
   return quotes[randomIndex];
 }
 
+function setBackgroundColor() {
+  const body = document.querySelector("body");
+  body.style.setProperty(
+    "--background-color",
+    `rgb(
+    ${getRandomNumber(0, 255)},${getRandomNumber(0, 255)},${getRandomNumber(
+      0,
+      255
+    )}
+  )`
+  );
+}
+
 /***
  * The printQuote function retrieves a random
  * quote and adds that quote to the DOM
@@ -71,35 +84,35 @@ function getRandomQuote() {
 function printQuote() {
   const randomQuote = getRandomQuote();
   let quoteString = `
-    <p class="quote">${randomQuote.quote}</p>
-    <p class="source">
+  <div class="container slideInOut">
+    <div id="quote-box" class="quote-box">
+      <p class="quote">${randomQuote.quote}</p>
+      <p class="source">
   `;
 
-  if (randomQuote.profession) quoteString += `<span class='profession'>${randomQuote.profession}</span>`;
+  if (randomQuote.profession)
+    quoteString += `<span class='profession'>${randomQuote.profession}</span>`;
 
   quoteString += randomQuote.source;
 
-  if (randomQuote.citation) quoteString += `<span class="citation">${randomQuote.citation}</span>`;
+  if (randomQuote.citation)
+    quoteString += `<span class="citation">${randomQuote.citation}</span>`;
   if (randomQuote.year) quoteString += `<span class="year">${randomQuote.year}`;
 
-  quoteString += `</p>`;
+  quoteString += `</p></div></div>`;
 
-  document.querySelector("body").style.backgroundColor = `rgb(
-    ${getRandomNumber(0, 255)},${getRandomNumber(0, 255)},${getRandomNumber(0, 255)}
-  )`;
+  setBackgroundColor();
+  clearInterval(quoteInterval);
+  quoteInterval = setInterval(printQuote, 10000);
 
-  clearInterval(quoteInterval)
-  quoteInterval = setInterval(printQuote, 6000)
-  
-  return (document.getElementById("quote-box").innerHTML = quoteString);
+  return (document.getElementById("target").innerHTML = quoteString);
 }
 
 /*
-* This method calls the printQuote function
-* on a 6 second interval
-*/
-let quoteInterval = setInterval(printQuote, 6000)
-
+ * This method calls the printQuote function
+ * on a 10 second interval
+ */
+let quoteInterval = setInterval(printQuote, 10000);
 
 /***
  * This event listener listens for a button click

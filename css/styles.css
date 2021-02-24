@@ -5,11 +5,16 @@
 
 @import url("https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i&display=swap");
 
+:root {
+  --background-color: rgb(58, 193, 98);
+}
+
 body {
-  background-color: rgb(58, 193, 98);
+  background-color: var(--background-color);
   color: white;
   font-family: "Playfair Display", serif;
   padding: 5px;
+  overflow: hidden;
 }
 
 header {
@@ -53,6 +58,29 @@ h1 {
   max-width: 1024px;
   margin: auto;
   padding: 5px;
+}
+
+.slideInOut {
+  animation: slideInOut 10s ease-in-out 0s 1;
+}
+
+@keyframes slideInOut {
+  0% {
+    opacity: 0;
+    transform: translateX(300px);
+  }
+  15% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+  85% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-300px);
+    opacity: 0;
+  }
 }
 
 .quote-box {
